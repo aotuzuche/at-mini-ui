@@ -1,0 +1,77 @@
+$rootClassName: '.am-list-cell';
+
+#{$rootClassName} {
+  font-size: 30px;
+  background-color: #fff;
+  padding-left: 30px;
+
+  &:active {
+    background-color: #f9f9f9;
+  }
+
+  &--indent {
+    padding-left: 30px;
+    #{$rootClassName}__inner {
+      padding: 0;
+    }
+  }
+
+  &--last {
+    #{$rootClassName}__inner {
+      border-bottom: none;
+    }
+  }
+
+  &__inner {
+    height: 100px;
+    line-height: 100px;
+    padding-right: 30px;
+    border-bottom: solid 1px #ececec;
+    display: flex;
+    align-items: center;
+  }
+
+  &__thumb {
+    width: 35px;
+    height: 35px;
+    display: block;
+    margin-right: 20px;
+  }
+
+  &__textcontent {
+    flex: 1;
+    margin-right: 20px;
+    line-height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  &__text {
+    flex: 1;
+    margin-right: 20px;
+  }
+
+  &__extraText {
+    color: #999;
+    font-size: 26px;
+    line-height: 100px;
+  }
+
+  &__extarThumb {
+    display: block;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+  }
+
+  &__arrow {
+    width: 40px;
+    height: 100px;
+    background: url('data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoBAMAAAB+0KVeAAAAElBMVEUAAAAAAAAAAAAAAAAAAAAAAADgKxmiAAAABnRSTlMAMxshAS1qdFS6AAAAPElEQVQoz2MYtkDRBItgoLADFpWCWJQyCQ68UkxBlkBBTEFnQSFMhYaCCvRWiPCOAqYgNoUMqgoMwwQAAP1TB9Qkg/0HAAAAAElFTkSuQmCC')
+      no-repeat right;
+    background-size: 40px;
+    margin-right: 20px;
+  }
+}

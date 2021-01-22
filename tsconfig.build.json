@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "rootDir": "./components",
+    "emitDeclarationOnly": true
+  },
+  "exclude": ["**/demo/*", "tests", "**/__tests__/*"]
+}

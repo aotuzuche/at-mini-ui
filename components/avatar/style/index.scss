@@ -1,0 +1,48 @@
+$rootClassName: 'am-avatar';
+
+.#{$rootClassName} {
+  position: relative;
+
+  &--small {
+    width: 80px;
+    height: 80px;
+  }
+
+  &--normal {
+    width: 100px;
+    height: 100px;
+  }
+
+  &--large {
+    width: 120px;
+    height: 120px;
+  }
+
+  &--circle {
+    border-radius: 50%;
+
+    .#{$rootClassName}__img {
+      border-radius: 50%;
+    }
+  }
+
+  &--text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    background-color: #e5e5e5;
+  }
+
+  &__text {
+    line-height: 1;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+}

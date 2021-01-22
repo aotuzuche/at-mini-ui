@@ -1,0 +1,54 @@
+$rootClassName: '.am-tabs';
+
+#{$rootClassName} {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fff;
+
+  &__item {
+    position: relative;
+    display: block;
+    flex: 1;
+    width: 100%;
+    height: 100px;
+    color: #999;
+    font-size: 30px;
+    line-height: 100px;
+    background-color: #fff;
+    border: none;
+
+    &.hover {
+      background: none;
+      opacity: 1;
+    }
+
+    &::after {
+      position: absolute;
+      top: calc(100% - 6px);
+      bottom: 0;
+      left: 50%;
+      width: 30px;
+      height: 6px;
+      margin-left: -15px;
+      background: #00cf97;
+      border: none;
+      border-radius: 3px;
+      transform: scaleX(0);
+      transform-origin: 50% 50%;
+      opacity: 0;
+      transition: all 0.25s ease-out;
+      content: '';
+    }
+  }
+
+  &--active {
+    color: #333;
+
+    &::after {
+      transform: scaleX(1);
+      opacity: 1;
+    }
+  }
+}

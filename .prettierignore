@@ -1,0 +1,17 @@
+.cache
+.umi
+*.jpg
+*.png
+*.ico
+*.log
+*.lock
+.editorconfig
+.gitignore
+.prettierignore
+.DS_Store
+.eslintignore
+/lib
+/es
+/dist
+/site
+/stats.html

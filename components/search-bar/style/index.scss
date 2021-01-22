@@ -1,0 +1,51 @@
+$rootClassName: '.am-search-bar';
+
+#{$rootClassName} {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+
+  &.am-search-bar--focus {
+    #{$rootClassName}__content {
+      flex-grow: 1;
+      flex-shrink: 1;
+    }
+  }
+
+  &.am-search-bar--disabled {
+    pointer-events: none;
+  }
+
+  &__content {
+    display: flex;
+    transition: all 0.3s ease-in-out;
+    background: #f5f5f5;
+    flex: 1;
+    flex-shrink: 0;
+    transform: translateZ(0);
+    overflow: hidden;
+  }
+
+  &__input {
+    font-size: 30px !important;
+    color: #333;
+    flex: 1;
+    transform: translateZ(0);
+    display: block;
+    position: relative;
+    overflow: hidden;
+    z-index: 99;
+  }
+
+  &__actions {
+    background-color: transparent;
+    font-size: 30px;
+    color: #666;
+    line-height: 72px;
+    flex-shrink: 0;
+    display: block;
+    width: 100px;
+    text-align: center;
+    z-index: 9;
+  }
+}

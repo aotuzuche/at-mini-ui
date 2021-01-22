@@ -1,0 +1,60 @@
+.am-spin {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+
+  &__inner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 82px;
+    height: 34px;
+    overflow: hidden;
+  }
+
+  &__item {
+    position: absolute;
+    top: 10px;
+    display: block;
+    width: 14px;
+    height: 14px;
+    background: #00cf97;
+    border-radius: 50%;
+
+    &--1 {
+      left: 0;
+      animation: __x_loading_bounce 0.8s linear infinite;
+    }
+
+    &--2 {
+      left: 34px;
+      animation: __x_loading_bounce 0.8s linear 0.2s infinite;
+    }
+
+    &--3 {
+      left: 68px;
+      animation: __x_loading_bounce 0.8s linear 0.4s infinite;
+    }
+  }
+}
+
+@keyframes __x_loading_bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

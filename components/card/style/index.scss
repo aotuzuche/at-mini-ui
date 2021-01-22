@@ -1,0 +1,19 @@
+$rootClassName: '.am-card';
+#{$rootClassName} {
+  display: block;
+  background: #fff;
+  position: relative;
+
+  &--rounded-corner {
+    border-radius: 6px;
+  }
+
+  &--border-all {
+    border: 1px solid rgb(242, 242, 242);
+  }
+
+  &--border-t-b {
+    border-top: 1px solid rgb(242, 242, 242);
+    border-bottom: 1px solid rgb(242, 242, 242);
+  }
+}

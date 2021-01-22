@@ -1,0 +1,10 @@
+.am-list {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &--border {
+    border-bottom: solid 1px #efefef;
+    border-top: solid 1px #efefef;
+  }
+}
