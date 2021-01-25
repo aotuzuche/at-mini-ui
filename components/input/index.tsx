@@ -136,4 +136,4 @@ AmInput.defaultProps = {
   onClick: () => {},
 }
 
-export default React.memo(AmInput)
+export default Taro.memo(AmInput)
