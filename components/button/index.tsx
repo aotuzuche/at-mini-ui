@@ -82,4 +82,4 @@ AmButton.options = {
   addGlobalClass: true,
 }
 
-export default Taro.memo(AmButton)
+export default React.memo(AmButton)
