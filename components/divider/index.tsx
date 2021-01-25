@@ -18,4 +18,4 @@ AmDivider.options = {
   addGlobalClass: true,
 }
 
-export default Taro.memo(AmDivider)
+export default React.memo(AmDivider)

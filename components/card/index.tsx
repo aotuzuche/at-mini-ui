@@ -29,4 +29,4 @@ AmCard.options = {
   addGlobalClass: true,
 }
 
-export default Taro.memo(AmCard)
+export default React.memo(AmCard)

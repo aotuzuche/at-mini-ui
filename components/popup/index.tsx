@@ -136,4 +136,4 @@ AmPopup.options = {
   addGlobalClass: true,
 }
 
-export default Taro.memo(AmPopup)
+export default React.memo(AmPopup)

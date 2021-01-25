@@ -52,4 +52,4 @@ AmTabs.options = {
   addGlobalClass: true,
 }
 
-export default Taro.memo(AmTabs)
+export default React.memo(AmTabs)
