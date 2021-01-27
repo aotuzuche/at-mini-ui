@@ -80,7 +80,7 @@ $rootClassName: '.am-button';
 
   &--disabled {
     opacity: 0.4;
-
+    pointer-events: none;
     &.am-button--hover {
       opacity: 0.4;
     }

@@ -8,14 +8,12 @@ interface IProps {
   type?: 'primary' | 'lighter' | 'danger' | 'default' | 'bordered'
   size?: 'small' | 'large' | 'middle'
   className?: string
-  data?: any
   shrink?: boolean
   disabled?: boolean
   color?: string
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
   openType?: keyof ButtonProps.openType
-  reportFormID?: boolean
   onGetPhoneNumber?: (res: any) => any
 }
 
@@ -23,7 +21,6 @@ const AmButton: Taro.FC<IProps> = (props) => {
   const {
     disabled,
     onClick,
-    data,
     size,
     type,
     color,
@@ -40,7 +37,7 @@ const AmButton: Taro.FC<IProps> = (props) => {
       return
     }
     if (onClick) {
-      onClick(evt, data)
+      onClick(evt)
     }
   }
 
