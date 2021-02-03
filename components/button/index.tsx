@@ -13,7 +13,7 @@ interface IProps {
   color?: string
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
-  openType?: keyof ButtonProps.openType
+  openType?: ButtonProps.openType
   onGetPhoneNumber?: (res: any) => any
 }
 
