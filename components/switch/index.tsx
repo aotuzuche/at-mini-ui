@@ -1,10 +1,11 @@
-import React from 'react'
 import { Button, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
+import React from 'react'
 
 interface IProps {
   size?: 'small'
+  type?: 'primary' | 'secondary'
   className?: string
   data?: any
   disabled?: boolean
@@ -13,7 +14,7 @@ interface IProps {
 }
 
 const AmSwitch: Taro.FC<IProps> = (props) => {
-  const { size, disabled, onChange, checked, data, className } = props
+  const { size, type, disabled, onChange, checked, data, className } = props
 
   const onButtonChange = () => {
     if (disabled) {
@@ -30,6 +31,7 @@ const AmSwitch: Taro.FC<IProps> = (props) => {
 
   const classes = cn(
     'am-switch',
+    `am-switch--${type}`,
     {
       'am-switch--small': size === 'small',
       'am-switch--checked': checked,
@@ -50,6 +52,7 @@ const AmSwitch: Taro.FC<IProps> = (props) => {
 }
 
 AmSwitch.defaultProps = {
+  type: 'primary',
   checked: false,
   disabled: false,
 }
@@ -58,4 +61,4 @@ AmSwitch.options = {
   addGlobalClass: true,
 }
 
-export default React.memo(AmSwitch)
+export default AmSwitch

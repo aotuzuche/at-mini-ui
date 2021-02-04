@@ -1,7 +1,6 @@
-/* eslint-disable no-void */
 import Taro from '@tarojs/taro'
 
-let timer: any = void 0
+let timer: any = 0
 
 const AmToast = (text: string) => {
   Taro.hideLoading()

@@ -7,8 +7,8 @@ interface IProps {
   cancel?: string
 }
 
-const AmAlert = (props: IProps | string) =>
-  new Promise<boolean>((resolve) => {
+const AmAlert = (props: IProps | string) => {
+  return new Promise<boolean>((resolve) => {
     let p: IProps = { content: '' }
     if (typeof props === 'string') {
       p = {
@@ -45,5 +45,6 @@ const AmAlert = (props: IProps | string) =>
       },
     })
   })
+}
 
 export default AmAlert

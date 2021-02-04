@@ -5,8 +5,13 @@ $rootClass: '.am-input';
   display: flex;
 
   &#{$rootClass}--border {
-    border: solid 1px #efefef;
+    border: 1px solid #ebebee;
     border-radius: 5px;
+    transition: border 0.2s ease-out;
+
+    &:focus-within {
+      border: 1px solid rgb(196, 196, 205);
+    }
   }
 
   &__input {
@@ -14,8 +19,8 @@ $rootClass: '.am-input';
     flex: 1;
     height: 72px;
     padding-left: 20px;
-    color: #000;
     background-color: transparent;
+    font-size: 28px;
   }
 
   &__padding {

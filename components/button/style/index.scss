@@ -23,11 +23,21 @@ $rootClassName: '.am-button';
 
   &--primary {
     color: #fff;
-    background: linear-gradient(to right, #14d78a, #00cf97);
+    background: linear-gradient(to right, rgb(20, 215, 138), rgb(0, 207, 151));
 
     &.am-button--hover {
       color: #fff;
-      background: linear-gradient(to right, #14d78a, #00cf97);
+      background: linear-gradient(to right, rgb(20, 215, 138), rgb(0, 207, 151));
+    }
+  }
+
+  &--secondary {
+    color: #fff;
+    background: linear-gradient(to right, rgb(31, 128, 255), rgb(0, 109, 255));
+
+    &.am-button--hover {
+      color: #fff;
+      background: linear-gradient(to right, rgb(31, 128, 255), rgb(0, 109, 255));
     }
   }
 

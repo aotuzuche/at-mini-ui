@@ -23,30 +23,37 @@ $rootClassName: '.am-tabs';
       background: none;
       opacity: 1;
     }
+  }
 
-    &::after {
-      position: absolute;
-      top: calc(100% - 6px);
-      bottom: 0;
-      left: 50%;
-      width: 30px;
-      height: 6px;
-      margin-left: -15px;
-      background: #00cf97;
-      border: none;
-      border-radius: 3px;
-      transform: scaleX(0);
-      transform-origin: 50% 50%;
-      opacity: 0;
-      transition: all 0.25s ease-out;
-      content: '';
-    }
+  &__line {
+    position: absolute;
+    top: calc(100% - 6px);
+    bottom: 0;
+    left: 50%;
+    width: 30px;
+    height: 6px;
+    margin-left: -15px;
+
+    border: none;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: 50% 50%;
+    opacity: 0;
+    transition: all 0.25s ease-out;
+  }
+
+  &.am-tabs--primary .am-tabs__line {
+    background: #00cf97;
+  }
+
+  &.am-tabs--secondary .am-tabs__line {
+    background: #006dff;
   }
 
   &--active {
     color: #333;
 
-    &::after {
+    .am-tabs__line {
       transform: scaleX(1);
       opacity: 1;
     }

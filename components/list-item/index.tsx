@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
+import { Image, Text, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { View, Image, Text } from '@tarojs/components'
 import cn from 'classnames'
+import React from 'react'
+/* eslint-disable @typescript-eslint/no-empty-function */
 
 interface IListItemProps {
   text: string
@@ -11,7 +11,6 @@ interface IListItemProps {
   thumb?: string
   indent?: boolean
   className?: string
-  last?: boolean
   extraText?: string
   extraThumb?: string
   onClick?: (value: any) => void
@@ -23,7 +22,6 @@ const AmListItem: Taro.FC<IListItemProps> = (props: IListItemProps) => {
     thumb,
     onClick,
     indent,
-    last,
     value,
     extraText,
     extraThumb,
@@ -31,7 +29,6 @@ const AmListItem: Taro.FC<IListItemProps> = (props: IListItemProps) => {
   } = props
   const classname = cn('am-list-cell', className, {
     'am-list-cell--indent': indent,
-    'am-list-cell--last': last,
   })
 
   const onItemClick = (item: any) => {
@@ -45,10 +42,10 @@ const AmListItem: Taro.FC<IListItemProps> = (props: IListItemProps) => {
         <View className="am-list-cell__textcontent">
           <Text className="am-list-cell__text">{text}</Text>
           {extraText ? (
-            <Text className="am-list-cell__extraText">{extraText}</Text>
+            <Text className="am-list-cell__extra-text">{extraText}</Text>
           ) : null}
           {extraThumb ? (
-            <Image className="am-list-cell__extarThumb" src={extraThumb} />
+            <Image className="am-list-cell__extar-thumb" src={extraThumb} />
           ) : null}
         </View>
         {arrow && <View className="am-list-cell__arrow" />}
@@ -60,7 +57,6 @@ const AmListItem: Taro.FC<IListItemProps> = (props: IListItemProps) => {
 AmListItem.defaultProps = {
   arrow: false,
   indent: true,
-  last: false,
   extraThumb: '',
   value: '',
   extraText: '',

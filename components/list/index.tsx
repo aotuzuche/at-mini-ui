@@ -1,7 +1,7 @@
-import React from 'react'
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import cn from 'classnames'
+import React from 'react'
 
 interface IListProps {
   border?: boolean
@@ -10,11 +10,15 @@ interface IListProps {
 
 const AmList: Taro.FC<IListProps> = (props) => {
   const { className, border, children } = props
-  const classname = cn('am-list', className, {
-    'am-list--border': border,
-  })
+  const classname = cn('am-list', className)
 
-  return <View className={classname}>{children}</View>
+  return (
+    <View className={classname}>
+      {border && <View className="am-list-border am-list-border--top" />}
+      {children}
+      {border && <View className="am-list-border am-list-border--bottom" />}
+    </View>
+  )
 }
 
 AmList.defaultProps = {

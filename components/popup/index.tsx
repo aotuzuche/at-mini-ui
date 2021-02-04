@@ -1,7 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react'
 import { Block, ScrollView, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
+import React, { useEffect, useRef, useState } from 'react'
 import AmButton from '../button'
 
 interface IProps {

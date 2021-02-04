@@ -56,9 +56,12 @@ module.exports = {
     'jsx-a11y/no-static-element-interactions': 0,
     'jsx-a11y/anchor-is-valid': 0,
     'no-restricted-globals': 0,
-    'no-console': 2,
+    'no-console': 0,
     'prettier/prettier': 'error',
     'no-use-before-define': 'off',
+    'arrow-body-style': 0,
+    '@typescript-eslint/interface-name-prefix': 0,
+    '@typescript-eslint/no-empty-function': 0,
     '@typescript-eslint/no-use-before-define': ['error'],
   },
 }

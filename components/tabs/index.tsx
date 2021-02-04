@@ -1,7 +1,7 @@
-import React from 'react'
 import { Button, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
+import React from 'react'
 
 interface ITab {
   title: string
@@ -11,14 +11,15 @@ interface ITab {
 interface IProps {
   tabs: ITab[]
   active: number
+  type?: 'primary' | 'secondary'
   onClick: (index: number) => void
   className?: string
 }
 
 const AmTabs: Taro.FC<IProps> = (props) => {
-  const { className, onClick, tabs, active } = props
+  const { className, type, onClick, tabs, active } = props
 
-  const classes = cn('am-tabs', className)
+  const classes = cn('am-tabs', `am-tabs--${type}`, className)
 
   const onButtonClick = (tab: ITab) => {
     if (tab && tab.key !== active) {
@@ -38,6 +39,7 @@ const AmTabs: Taro.FC<IProps> = (props) => {
           hoverClass="hover"
         >
           {tab.title}
+          <View className="am-tabs__line" />
         </Button>
       ))}
     </View>
@@ -46,6 +48,7 @@ const AmTabs: Taro.FC<IProps> = (props) => {
 
 AmTabs.defaultProps = {
   tabs: [],
+  type: 'primary',
 }
 
 AmTabs.options = {

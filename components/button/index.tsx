@@ -1,11 +1,11 @@
-import React from 'react'
 import { Button } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
+import React from 'react'
 
 interface IProps {
-  type?: 'primary' | 'lighter' | 'danger' | 'default' | 'bordered'
+  type?: 'primary' | 'secondary' | 'lighter' | 'danger' | 'default' | 'bordered'
   size?: 'small' | 'large' | 'middle'
   className?: string
   shrink?: boolean

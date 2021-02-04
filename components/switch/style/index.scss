@@ -38,12 +38,16 @@ $rootClassName: '.am-switch';
     transition: all 0.2s ease-out;
   }
 
-  &.am-switch--checked {
-    background: #00cf97;
+  &.am-switch--checked .am-switch__dot {
+    transform: translate(46px, 0);
+  }
 
-    .am-switch__dot {
-      transform: translate(46px, 0);
-    }
+  &.am-switch--primary.am-switch--checked {
+    background: #00cf97;
+  }
+
+  &.am-switch--secondary.am-switch--checked {
+    background: #006dff;
   }
 
   &--small {

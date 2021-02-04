@@ -1,7 +1,7 @@
-import React, { useRef, useState } from 'react'
+import { ScrollView, View } from '@tarojs/components'
 import Taro from '@tarojs/taro'
-import { View, ScrollView } from '@tarojs/components'
 import cn from 'classnames'
+import React, { useRef, useState } from 'react'
 import AmList from '../list'
 import AmListItem from '../list-item'
 
@@ -179,7 +179,6 @@ const AmIndexes: Taro.FC<IProps> = (props: IProps) => {
                     if (index === city.items.length - 1) {
                       return (
                         <AmListItem
-                          last
                           text={cell.name}
                           key={cell.code}
                           value={cell}

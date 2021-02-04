@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react'
-import Taro from '@tarojs/taro'
+import { Input, View } from '@tarojs/components'
 import { InputProps } from '@tarojs/components/types/Input'
-import { View, Input } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import cn from 'classnames'
+import React from 'react'
 
 interface IProps {
   id?: string
@@ -136,4 +135,4 @@ AmInput.defaultProps = {
   onClick: () => {},
 }
 
-export default Taro.memo(AmInput)
+export default AmInput
