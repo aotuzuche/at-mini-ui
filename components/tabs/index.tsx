@@ -4,15 +4,15 @@ import cn from 'classnames'
 import React from 'react'
 
 interface ITab {
-  title: string
-  key: number
+  label: string
+  value: string | number
 }
 
 interface IProps {
   tabs: ITab[]
-  active: number
+  active: string | number
   type?: 'primary' | 'secondary'
-  onClick: (index: number) => void
+  onClick: (index: string | number) => void
   className?: string
 }
 
@@ -22,8 +22,8 @@ const AmTabs: Taro.FC<IProps> = (props) => {
   const classes = cn('am-tabs', `am-tabs--${type}`, className)
 
   const onButtonClick = (tab: ITab) => {
-    if (tab && tab.key !== active) {
-      onClick(tab.key)
+    if (tab && tab.value !== active) {
+      onClick(tab.value)
     }
   }
 
@@ -31,14 +31,14 @@ const AmTabs: Taro.FC<IProps> = (props) => {
     <View className={classes}>
       {tabs.map((tab) => (
         <Button
-          key={tab.key}
+          key={tab.value}
           onClick={() => onButtonClick(tab)}
           className={cn('am-tabs__item', {
-            'am-tabs--active': tab.key === active,
+            'am-tabs--active': tab.value === active,
           })}
           hoverClass="hover"
         >
-          {tab.title}
+          {tab.label}
           <View className="am-tabs__line" />
         </Button>
       ))}
