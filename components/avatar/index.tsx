@@ -2,7 +2,6 @@ import Taro from '@tarojs/taro'
 import React from 'react'
 import { Image, View, Text } from '@tarojs/components'
 import cn from 'classnames'
-import { cdn } from 'auto-libs'
 
 const defaultAvatar = `data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAABmCAMAAAAOARRQAAABpFBMVEUAAADZ2tvc2tza2tra2tva
 2tra2trW2dra2tra2tva2tva2trb2tva2tvZ2trb2tva2tvT2drZ2tva2tra2tra2tra2tra2tra
@@ -73,19 +72,25 @@ interface IProps {
   size?: 'small' | 'normal' | 'large'
   circle?: boolean
   text?: string
+  className?: string
+  customStyle?: React.CSSProperties
   onClick?: () => void
 }
 
 const AmAvatar: Taro.FC<IProps> = (props) => {
-  const { url = defaultAvatar, size = 'normal', circle, text, onClick } = props
+  const {
+    url = defaultAvatar,
+    size = 'normal',
+    circle,
+    text,
+    onClick,
+    className = '',
+    customStyle,
+  } = props
 
   let headCover = defaultAvatar
   if (!text && url) {
-    if (url.indexOf('http') === -1) {
-      headCover = `${cdn}${url}`
-    } else {
-      headCover = url
-    }
+    headCover = url
   }
 
   const onAvatarClick = () => {
@@ -96,13 +101,22 @@ const AmAvatar: Taro.FC<IProps> = (props) => {
     onClick()
   }
 
-  const classname = cn('am-avatar', `am-avatar--${size}`, {
-    'am-avatar--circle': circle,
-    'am-avatar--text': !!text,
-  })
+  const classname = cn(
+    'am-avatar',
+    `am-avatar--${size}`,
+    {
+      'am-avatar--circle': circle,
+      'am-avatar--text': !!text,
+    },
+    className
+  )
 
   return (
-    <View className={classname} onClick={onAvatarClick}>
+    <View
+      className={classname}
+      style={{ ...customStyle }}
+      onClick={onAvatarClick}
+    >
       {text ? (
         <Text className="am-avatar__text">{text}</Text>
       ) : (
@@ -117,6 +131,7 @@ AmAvatar.defaultProps = {
   circle: true,
   text: '',
   url: defaultAvatar,
+  className: '',
 }
 
 AmAvatar.options = {
