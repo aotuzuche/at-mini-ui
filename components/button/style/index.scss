@@ -1,6 +1,4 @@
-$rootClassName: '.am-button';
-
-#{$rootClassName} {
+.am-button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -23,31 +21,21 @@ $rootClassName: '.am-button';
 
   &--primary {
     color: #fff;
-    background: linear-gradient(to right, rgb(20, 215, 138), rgb(0, 207, 151));
+    background: linear-gradient(to right, #14d78a, #00cf97);
 
     &.am-button--hover {
       color: #fff;
-      background: linear-gradient(to right, rgb(20, 215, 138), rgb(0, 207, 151));
+      background: linear-gradient(to right, #14d78a, #00cf97);
     }
   }
 
   &--secondary {
     color: #fff;
-    background: linear-gradient(to right, rgb(31, 128, 255), rgb(0, 109, 255));
+    background: linear-gradient(to right, #1f80ff, #006dff);
 
     &.am-button--hover {
       color: #fff;
-      background: linear-gradient(to right, rgb(31, 128, 255), rgb(0, 109, 255));
-    }
-  }
-
-  &--lighter {
-    color: #00cf97;
-    background: #edfcf8;
-
-    &.am-button--hover {
-      color: #00cf97;
-      background: #edfcf8;
+      background: linear-gradient(to right, #1f80ff, #006dff);
     }
   }
 
@@ -58,6 +46,38 @@ $rootClassName: '.am-button';
     &.am-button--hover {
       color: #fff;
       background: #ff5949;
+    }
+  }
+
+  &--lighter {
+    &.am-button--primary {
+      color: #00cf97;
+      background: #edfcf8;
+
+      &.am-button--hover {
+        color: #00cf97;
+        background: #edfcf8;
+      }
+    }
+
+    &.am-button--secondary {
+      color: #006dff;
+      background: #f5f8ff;
+
+      &.am-button--hover {
+        color: #006dff;
+        background: #f5f8ff;
+      }
+    }
+
+    &.am-button--danger {
+      color: #ff5949;
+      background: #fff8f7;
+
+      &.am-button--hover {
+        color: #ff5949;
+        background: #fff8f7;
+      }
     }
   }
 

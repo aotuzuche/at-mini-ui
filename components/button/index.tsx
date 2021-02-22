@@ -5,9 +5,10 @@ import cn from 'classnames'
 import React from 'react'
 
 interface IProps {
-  type?: 'primary' | 'secondary' | 'lighter' | 'danger' | 'default' | 'bordered'
+  type?: 'primary' | 'secondary' | 'danger' | 'default' | 'bordered'
   size?: 'small' | 'large' | 'middle'
   className?: string
+  lighter?: boolean
   shrink?: boolean
   disabled?: boolean
   color?: string
@@ -24,6 +25,7 @@ const AmButton: Taro.FC<IProps> = (props) => {
     size,
     type,
     color,
+    lighter,
     shrink,
     className,
     customStyle,
@@ -46,6 +48,9 @@ const AmButton: Taro.FC<IProps> = (props) => {
     `am-button--${size}`,
     {
       [`am-button--${type}`]: !color,
+      'am-button--lighter':
+        lighter &&
+        (type === 'primary' || type === 'secondary' || type === 'danger'),
       'am-button--shrink': shrink,
       'am-button--disabled': disabled,
     },
@@ -73,6 +78,7 @@ AmButton.defaultProps = {
   size: 'middle',
   shrink: false,
   disabled: false,
+  lighter: false,
 }
 
 AmButton.options = {
