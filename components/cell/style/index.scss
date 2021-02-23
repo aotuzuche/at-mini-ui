@@ -1,0 +1,22 @@
+.am-cell {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  &-border {
+    width: 100%;
+    height: 2px;
+    background: #f2f2f2;
+    position: absolute;
+    left: 0;
+    z-index: 99;
+
+    &--top {
+      top: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+    }
+  }
+}

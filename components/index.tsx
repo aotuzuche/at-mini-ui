@@ -18,6 +18,10 @@ export { default as List } from './list'
 
 export { default as ListItem } from './list-item'
 
+export { default as Cell } from './cell'
+
+export { default as CellRow } from './cell-row'
+
 export { default as LoadMore } from './load-more'
 
 export { default as Loading } from './loading'
