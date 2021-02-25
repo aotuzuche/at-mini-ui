@@ -1,4 +1,4 @@
-import { Button } from '@tarojs/components'
+import { BaseEventOrig, Button } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
@@ -15,7 +15,12 @@ interface IProps {
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
   openType?: ButtonProps.openType
-  onGetPhoneNumber?: (res: any) => any
+  onGetPhoneNumber?: (
+    evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>
+  ) => void
+  onGetUserInfo?: (
+    evt: BaseEventOrig<ButtonProps.onGetUserInfoEventDetail>
+  ) => void
 }
 
 const AmButton: Taro.FC<IProps> = (props) => {
@@ -31,6 +36,7 @@ const AmButton: Taro.FC<IProps> = (props) => {
     customStyle,
     openType,
     onGetPhoneNumber,
+    onGetUserInfo,
     children,
   } = props
 
@@ -67,6 +73,7 @@ const AmButton: Taro.FC<IProps> = (props) => {
       hoverClass="am-button--hover"
       openType={openType as any}
       onGetPhoneNumber={onGetPhoneNumber}
+      onGetUserInfo={onGetUserInfo}
     >
       {children}
     </Button>
