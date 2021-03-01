@@ -3,6 +3,7 @@ $rootClass: '.am-input';
 #{$rootClass} {
   position: relative;
   display: flex;
+  background: #fff;
 
   &#{$rootClass}--border {
     border: 1px solid #ebebee;

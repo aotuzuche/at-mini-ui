@@ -5,12 +5,14 @@ import cn from 'classnames'
 import React from 'react'
 
 interface IProps {
-  type?: 'primary' | 'secondary' | 'danger' | 'default' | 'bordered'
+  type?: 'primary' | 'secondary' | 'danger' | 'default'
   size?: 'small' | 'large' | 'middle'
   className?: string
-  lighter?: boolean
+  lighter?: boolean | 'lighter' | 'white'
   shrink?: boolean
   disabled?: boolean
+  capsule?: boolean
+  bordered?: boolean
   color?: string
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
@@ -32,6 +34,8 @@ const AmButton: Taro.FC<IProps> = (props) => {
     color,
     lighter,
     shrink,
+    capsule,
+    bordered,
     className,
     customStyle,
     openType,
@@ -49,16 +53,21 @@ const AmButton: Taro.FC<IProps> = (props) => {
     }
   }
 
+  const canUseLighter =
+    type === 'primary' || type === 'secondary' || type === 'danger'
+
   const classes = cn(
     'am-button',
     `am-button--${size}`,
     {
       [`am-button--${type}`]: !color,
       'am-button--lighter':
-        lighter &&
-        (type === 'primary' || type === 'secondary' || type === 'danger'),
+        (lighter === true || lighter === 'lighter') && canUseLighter,
+      'am-button--white': lighter === 'white' && canUseLighter,
       'am-button--shrink': shrink,
       'am-button--disabled': disabled,
+      'am-button--capsule': capsule,
+      'am-button--bordered': bordered,
     },
     className
   )
@@ -86,6 +95,8 @@ AmButton.defaultProps = {
   shrink: false,
   disabled: false,
   lighter: false,
+  bordered: false,
+  capsule: true,
 }
 
 AmButton.options = {
