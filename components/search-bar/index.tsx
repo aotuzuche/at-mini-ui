@@ -14,6 +14,7 @@ interface IProps {
   onBlur?: () => void
   onAction?: () => void
   disabled?: boolean
+  className?: string
 }
 
 const AmSearchBar: Taro.FC<IProps> = (props) => {
@@ -26,6 +27,7 @@ const AmSearchBar: Taro.FC<IProps> = (props) => {
     onBlur,
     onAction,
     disabled,
+    className,
   } = props
   const [focus, setFocus] = useState(false)
   const [value, setValue] = useState('')
@@ -55,10 +57,14 @@ const AmSearchBar: Taro.FC<IProps> = (props) => {
     onAction && onAction()
   }
 
-  const classname = cn('am-search-bar', {
-    'am-search-bar--focus': focus,
-    'am-search-bar--disabled': disabled,
-  })
+  const classname = cn(
+    'am-search-bar',
+    {
+      'am-search-bar--focus': focus,
+      'am-search-bar--disabled': disabled,
+    },
+    className
+  )
 
   return (
     <View className={classname}>
