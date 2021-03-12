@@ -26,7 +26,6 @@ const AmInput: Taro.FC<IProps & InputProps> = (props) => {
     className,
     placeholder,
     maxlength,
-    autoFocus,
     password,
     placeholderStyle,
     onChange,
@@ -89,7 +88,6 @@ const AmInput: Taro.FC<IProps & InputProps> = (props) => {
         placeholderStyle={placeholderStyle}
         placeholder={placeholder}
         maxlength={maxlength}
-        focus={autoFocus}
         adjustPosition
         onInput={handleInput}
         cursorSpacing={50}
@@ -126,7 +124,6 @@ AmInput.defaultProps = {
   disabled: false,
   border: true,
   clear: true,
-  autoFocus: false,
   focus: false,
   onChange: () => {},
   onFocus: () => {},
