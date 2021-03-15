@@ -36,9 +36,7 @@ let clientY = 0
 const AmIndexes: Taro.FC<IProps> = (props: IProps) => {
   const [touch, setTouch] = useState(false)
   const [scrollIntoViewId, setScrollIntoViewId] = useState('')
-  const [currentLetter, setCurrentLetter] = useState('')
   const menuRef: any = useRef(null)
-  const timeRef: any = useRef(null)
   const {
     list,
     topKey,
@@ -49,18 +47,8 @@ const AmIndexes: Taro.FC<IProps> = (props: IProps) => {
   } = props
 
   const findElement = (index: number) => {
-    if (timeRef.current) {
-      setCurrentLetter('')
-      clearTimeout(timeRef.current)
-    }
-
     const letter = index === 0 ? 'hot' : menuList[index - 1]
     setScrollIntoViewId(`am-indexes__block--${letter}`)
-    setCurrentLetter(letter === 'hot' ? '热' : letter)
-
-    timeRef.current = setTimeout(() => {
-      setCurrentLetter('')
-    }, 1000)
   }
 
   const onCitySelectClick = (item: Item) => {
@@ -136,11 +124,6 @@ const AmIndexes: Taro.FC<IProps> = (props: IProps) => {
           ))}
         </View>
       )}
-
-      {currentLetter && (
-        <View className="am-indexes__toast">{currentLetter}</View>
-      )}
-
       <ScrollView
         scrollY
         scrollIntoView={scrollIntoViewId}
