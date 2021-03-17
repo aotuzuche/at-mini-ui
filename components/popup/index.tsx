@@ -115,7 +115,7 @@ const AmPopup: Taro.FC<IProps> = (props) => {
                 {footerBtnText}
               </AmButton>
             </View>
-            <View className="safe-area" />
+            <View className="am-safe-area" />
           </View>
         </View>
       )}
