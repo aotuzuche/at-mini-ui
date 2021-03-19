@@ -1,6 +1,5 @@
 import { Input, View } from '@tarojs/components'
 import { InputProps } from '@tarojs/components/types/Input'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -17,7 +16,7 @@ interface IProps {
   onKeyboardHeightChange?: (e: any) => void
 }
 
-const AmInput: Taro.FC<IProps & InputProps> = (props) => {
+const AmInput: React.FC<IProps & InputProps> = (props) => {
   const {
     id,
     type,
@@ -102,10 +101,6 @@ const AmInput: Taro.FC<IProps & InputProps> = (props) => {
       )}
     </View>
   )
-}
-
-AmInput.options = {
-  addGlobalClass: true,
 }
 
 AmInput.defaultProps = {

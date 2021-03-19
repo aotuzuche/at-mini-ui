@@ -1,5 +1,4 @@
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -13,7 +12,7 @@ interface IProps {
   onChange?: (checked: boolean) => void
 }
 
-const AmRadio: Taro.FC<IProps> = (props) => {
+const AmRadio: React.FC<IProps> = (props) => {
   const {
     type,
     text,
@@ -52,10 +51,6 @@ AmRadio.defaultProps = {
   text: '',
   onChange: () => {},
   disabled: false,
-}
-
-AmRadio.options = {
-  addGlobalClass: true,
 }
 
 export default AmRadio

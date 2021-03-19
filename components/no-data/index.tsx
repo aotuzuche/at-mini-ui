@@ -6,7 +6,7 @@ interface IProps {
   className?: string
 }
 
-const AmList: Taro.FC<IProps> = (props) => {
+const AmList: React.FC<IProps> = (props) => {
   const { className, children = '暂无数据' } = props
   const classname = cn('am-nodata', className)
 

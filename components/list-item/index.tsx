@@ -1,8 +1,6 @@
 import { Image, Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
-/* eslint-disable @typescript-eslint/no-empty-function */
 
 interface IListItemProps {
   text: string
@@ -15,7 +13,7 @@ interface IListItemProps {
   extraThumb?: string
   onClick?: (value: any) => void
 }
-const AmListItem: Taro.FC<IListItemProps> = (props: IListItemProps) => {
+const AmListItem: React.FC<IListItemProps> = (props: IListItemProps) => {
   const {
     text,
     arrow,
@@ -63,10 +61,6 @@ AmListItem.defaultProps = {
   thumb: '',
   className: '',
   onClick: () => {},
-}
-
-AmListItem.options = {
-  addGlobalClass: true,
 }
 
 export default AmListItem

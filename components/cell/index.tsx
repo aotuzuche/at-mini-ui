@@ -1,5 +1,4 @@
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -11,7 +10,7 @@ interface IProps {
   className?: string
 }
 
-const AmCell: Taro.FC<IProps> = (props) => {
+const AmCell: React.FC<IProps> = (props) => {
   const {
     className,
     wrapperBorder,
@@ -50,10 +49,6 @@ const AmCell: Taro.FC<IProps> = (props) => {
 
 AmCell.defaultProps = {
   wrapperBorder: true,
-}
-
-AmCell.options = {
-  addGlobalClass: true,
 }
 
 export default AmCell

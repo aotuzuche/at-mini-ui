@@ -1,6 +1,5 @@
 import { BaseEventOrig, Button } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -17,6 +16,7 @@ interface IProps {
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
   openType?: ButtonProps.openType
+  children: any
   onGetPhoneNumber?: (
     evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>
   ) => void
@@ -25,7 +25,7 @@ interface IProps {
   ) => void
 }
 
-const AmButton: Taro.FC<IProps> = (props) => {
+const AmButton: React.FC<IProps> = (props) => {
   const {
     disabled,
     onClick,
@@ -97,10 +97,6 @@ AmButton.defaultProps = {
   lighter: false,
   bordered: false,
   capsule: true,
-}
-
-AmButton.options = {
-  addGlobalClass: true,
 }
 
 export default React.memo(AmButton)

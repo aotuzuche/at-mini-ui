@@ -13,7 +13,7 @@ interface IProps {
   onChange?: ((evt: any, data?: any) => void) | any
 }
 
-const AmSwitch: Taro.FC<IProps> = (props) => {
+const AmSwitch: React.FC<IProps> = (props) => {
   const { size, type, disabled, onChange, checked, data, className } = props
 
   const onButtonChange = () => {
@@ -55,10 +55,6 @@ AmSwitch.defaultProps = {
   type: 'primary',
   checked: false,
   disabled: false,
-}
-
-AmSwitch.options = {
-  addGlobalClass: true,
 }
 
 export default AmSwitch

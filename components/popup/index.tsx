@@ -1,5 +1,4 @@
 import { Block, ScrollView, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React, { useEffect, useRef, useState } from 'react'
 import AmButton from '../button'
@@ -22,7 +21,7 @@ interface IProps {
   customContentStyle?: React.CSSProperties
 }
 
-const AmPopup: Taro.FC<IProps> = (props) => {
+const AmPopup: React.FC<IProps> = (props) => {
   const {
     visible,
     size,
@@ -130,10 +129,6 @@ AmPopup.defaultProps = {
   local: false,
   title: '',
   footerBtnText: '完成',
-}
-
-AmPopup.options = {
-  addGlobalClass: true,
 }
 
 export default React.memo(AmPopup)

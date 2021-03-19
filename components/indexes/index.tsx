@@ -33,7 +33,7 @@ const DISTANCE = 8 * (systemInfo.pixelRatio || 3)
 let lastMenuIndex = -1
 let clientY = 0
 
-const AmIndexes: Taro.FC<IProps> = (props: IProps) => {
+const AmIndexes: React.FC<IProps> = (props: IProps) => {
   const [touch, setTouch] = useState(false)
   const [scrollIntoViewId, setScrollIntoViewId] = useState('')
   const menuRef: any = useRef(null)
@@ -193,10 +193,6 @@ AmIndexes.defaultProps = {
   className: '',
   hotList: [],
   menuList: [],
-}
-
-AmIndexes.options = {
-  addGlobalClass: true,
 }
 
 export default AmIndexes

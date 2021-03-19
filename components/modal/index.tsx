@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react'
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import cn from 'classnames'
 
@@ -13,7 +12,7 @@ interface IProps {
   title?: string
 }
 
-const AmModal: Taro.FC<IProps> = (props) => {
+const AmModal: React.FC<IProps> = (props) => {
   const [animation, setAnimation] = useState(false)
   const timeRef = useRef<any>()
   const {
@@ -64,10 +63,6 @@ AmModal.defaultProps = {
   visible: false,
   maxWidth: 80,
   maxHeight: 70,
-}
-
-AmModal.options = {
-  addGlobalClass: true,
 }
 
 export default AmModal

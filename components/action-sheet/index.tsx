@@ -1,6 +1,4 @@
-/* eslint-disable react/react-in-jsx-scope */
 import React from 'react'
-import Taro from '@tarojs/taro'
 import { View, Button, Text } from '@tarojs/components'
 import cn from 'classnames'
 import AmPopup from '../popup'
@@ -24,7 +22,7 @@ interface IProps {
   onItemClick: (index: number) => void
 }
 
-const AmActionSheet: Taro.FC<IProps> = (props) => {
+const AmActionSheet: React.FC<IProps> = (props) => {
   const {
     className,
     title,
@@ -94,10 +92,6 @@ AmActionSheet.defaultProps = {
   visible: false,
   btnText: '取消',
   items: [],
-}
-
-AmActionSheet.options = {
-  addGlobalClass: true,
 }
 
 export default AmActionSheet
