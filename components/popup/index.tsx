@@ -5,6 +5,7 @@ import AmButton from '../button'
 
 interface IProps {
   visible?: boolean
+  children: any
   className?: string
   direction?: 'top' | 'left' | 'right' | 'bottom'
   transparent?: boolean
