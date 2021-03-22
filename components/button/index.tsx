@@ -1,8 +1,10 @@
-import { BaseEventOrig, Button } from '@tarojs/components'
+import { BaseEventOrig, Button, Form } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
+
+const ENV = Taro.getEnv()
 
 interface IProps {
   type?: 'primary' | 'secondary' | 'danger' | 'default'
@@ -17,6 +19,7 @@ interface IProps {
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
   openType?: ButtonProps.openType
+  onReportFormID?: (evt: any) => void
   onGetPhoneNumber?: (
     evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>
   ) => void
@@ -41,6 +44,7 @@ const AmButton: Taro.FC<IProps> = (props) => {
     openType,
     onGetPhoneNumber,
     onGetUserInfo,
+    onReportFormID,
     children,
   } = props
 
@@ -72,8 +76,14 @@ const AmButton: Taro.FC<IProps> = (props) => {
     className
   )
 
-  return (
+  // 打开reportFormID并且只有在微信和支付宝的情况下才可使用
+  const needReport =
+    onReportFormID &&
+    (ENV === Taro.ENV_TYPE.WEAPP || ENV === Taro.ENV_TYPE.ALIPAY)
+
+  const btn = (
     <Button
+      formType={needReport ? 'submit' : undefined}
       className={classes}
       style={
         color ? { backgroundColor: color, ...customStyle } : { ...customStyle }
@@ -87,6 +97,16 @@ const AmButton: Taro.FC<IProps> = (props) => {
       {children}
     </Button>
   )
+
+  if (needReport) {
+    return (
+      <Form onSubmit={onReportFormID} reportSubmit={needReport}>
+        {btn}
+      </Form>
+    )
+  }
+
+  return btn
 }
 
 AmButton.defaultProps = {
