@@ -1,5 +1,6 @@
 import { BaseEventOrig, Button, Form } from '@tarojs/components'
 import { ButtonProps } from '@tarojs/components/types/Button'
+import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -20,12 +21,8 @@ interface IProps {
   openType?: ButtonProps.openType
   onReportFormID?: (evt: any) => void
   children?: any
-  onGetPhoneNumber?: (
-    evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>
-  ) => void
-  onGetUserInfo?: (
-    evt: BaseEventOrig<ButtonProps.onGetUserInfoEventDetail>
-  ) => void
+  onGetPhoneNumber?: (evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>) => void
+  onGetUserInfo?: (evt: BaseEventOrig<ButtonProps.onGetUserInfoEventDetail>) => void
 }
 
 const AmButton: React.FC<IProps> = (props) => {
@@ -57,37 +54,31 @@ const AmButton: React.FC<IProps> = (props) => {
     }
   }
 
-  const canUseLighter =
-    type === 'primary' || type === 'secondary' || type === 'danger'
+  const canUseLighter = type === 'primary' || type === 'secondary' || type === 'danger'
 
   const classes = cn(
     'am-button',
     `am-button--${size}`,
     {
       [`am-button--${type}`]: !color,
-      'am-button--lighter':
-        (lighter === true || lighter === 'lighter') && canUseLighter,
+      'am-button--lighter': (lighter === true || lighter === 'lighter') && canUseLighter,
       'am-button--white': lighter === 'white' && canUseLighter,
       'am-button--shrink': shrink,
       'am-button--disabled': disabled,
       'am-button--capsule': capsule,
       'am-button--bordered': bordered,
     },
-    className
+    className,
   )
 
   // 打开reportFormID并且只有在微信和支付宝的情况下才可使用
-  const needReport =
-    onReportFormID &&
-    (ENV === Taro.ENV_TYPE.WEAPP || ENV === Taro.ENV_TYPE.ALIPAY)
+  const needReport = onReportFormID && (ENV === Taro.ENV_TYPE.WEAPP || ENV === Taro.ENV_TYPE.ALIPAY)
 
   const btn = (
     <Button
       formType={needReport ? 'submit' : undefined}
       className={classes}
-      style={
-        color ? { backgroundColor: color, ...customStyle } : { ...customStyle }
-      }
+      style={color ? { backgroundColor: color, ...customStyle } : { ...customStyle }}
       onClick={onBtnClick}
       hoverClass="am-button--hover"
       openType={openType as any}
