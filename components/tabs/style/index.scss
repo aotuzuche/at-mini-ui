@@ -23,6 +23,10 @@ $rootClassName: '.am-tabs';
       background: none;
       opacity: 1;
     }
+
+    &::after {
+      display: none;
+    }
   }
 
   &__line {
