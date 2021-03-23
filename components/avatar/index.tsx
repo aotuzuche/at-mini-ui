@@ -1,6 +1,6 @@
-import React from 'react'
-import { Image, View, Text } from '@tarojs/components'
+import { Image, Text, View } from '@tarojs/components'
 import cn from 'classnames'
+import React from 'react'
 
 const defaultAvatar = `data:img/jpg;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAABmCAMAAAAOARRQAAABpFBMVEUAAADZ2tvc2tza2tra2tva
 2tra2trW2dra2tra2tva2tva2trb2tva2tvZ2trb2tva2tvT2drZ2tva2tra2tra2tra2tra2tra
@@ -107,15 +107,11 @@ const AmAvatar: React.FC<IProps> = (props) => {
       'am-avatar--circle': circle,
       'am-avatar--text': !!text,
     },
-    className
+    className,
   )
 
   return (
-    <View
-      className={classname}
-      style={{ ...customStyle }}
-      onClick={onAvatarClick}
-    >
+    <View className={classname} style={{ ...customStyle }} onClick={onAvatarClick}>
       {text ? (
         <Text className="am-avatar__text">{text}</Text>
       ) : (

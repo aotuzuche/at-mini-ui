@@ -14,17 +14,7 @@ interface IListItemProps {
   onClick?: (value: any) => void
 }
 const AmListItem: React.FC<IListItemProps> = (props: IListItemProps) => {
-  const {
-    text,
-    arrow,
-    thumb,
-    onClick,
-    indent,
-    value,
-    extraText,
-    extraThumb,
-    className,
-  } = props
+  const { text, arrow, thumb, onClick, indent, value, extraText, extraThumb, className } = props
   const classname = cn('am-list-cell', className, {
     'am-list-cell--indent': indent,
   })
@@ -39,12 +29,8 @@ const AmListItem: React.FC<IListItemProps> = (props: IListItemProps) => {
         {thumb && <Image className="am-list-cell__thumb" src={thumb} />}
         <View className="am-list-cell__textcontent">
           <Text className="am-list-cell__text">{text}</Text>
-          {extraText ? (
-            <Text className="am-list-cell__extra-text">{extraText}</Text>
-          ) : null}
-          {extraThumb ? (
-            <Image className="am-list-cell__extar-thumb" src={extraThumb} />
-          ) : null}
+          {extraText ? <Text className="am-list-cell__extra-text">{extraText}</Text> : null}
+          {extraThumb ? <Image className="am-list-cell__extar-thumb" src={extraThumb} /> : null}
         </View>
         {arrow && <View className="am-list-cell__arrow" />}
       </View>

@@ -13,20 +13,12 @@ interface IProps {
 }
 
 const AmRadio: React.FC<IProps> = (props) => {
-  const {
-    type,
-    text,
-    checked,
-    disabled,
-    className,
-    onChange,
-    customStyle,
-  } = props
+  const { type, text, checked, disabled, className, onChange, customStyle } = props
   const composeClassName = cn(
     'am-radio',
     `am-radio--${type}`,
     { 'am-radio--checked': checked, 'am-radio--disabled': disabled },
-    className
+    className,
   )
 
   return (

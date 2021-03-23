@@ -1,6 +1,6 @@
 import { View } from '@tarojs/components'
-import React from 'react'
 import cn from 'classnames'
+import React from 'react'
 
 interface IProps {
   roundedCorner?: boolean // 圆角
@@ -18,7 +18,7 @@ const AmCard: React.FC<IProps> = (props) => {
       'am-card--border-all': border === 'all',
       'am-card--border-t-b': border === 'top-bottom',
     },
-    className
+    className,
   )
 
   return <View className={classes}>{children}</View>

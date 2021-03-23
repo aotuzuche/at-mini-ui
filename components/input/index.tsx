@@ -96,9 +96,7 @@ const AmInput: React.FC<IProps & InputProps> = (props) => {
         onKeyboardHeightChange={handleKeyboardHeightChange}
       />
 
-      {clear && value && (
-        <View className="am-input__clear" onClick={onInputClear} />
-      )}
+      {clear && value && <View className="am-input__clear" onClick={onInputClear} />}
     </View>
   )
 }

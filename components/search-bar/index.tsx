@@ -1,6 +1,6 @@
-import React, { useState } from 'react'
 import { View } from '@tarojs/components'
 import cn from 'classnames'
+import React, { useState } from 'react'
 import AmInput from '../input'
 
 interface IProps {
@@ -62,7 +62,7 @@ const AmSearchBar: React.FC<IProps> = (props) => {
       'am-search-bar--focus': focus,
       'am-search-bar--disabled': disabled,
     },
-    className
+    className,
   )
 
   return (

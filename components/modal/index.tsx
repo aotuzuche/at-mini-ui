@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect } from 'react'
 import { View } from '@tarojs/components'
 import cn from 'classnames'
+import React, { useEffect, useRef, useState } from 'react'
 
 interface IProps {
   visible: boolean
@@ -15,15 +15,7 @@ interface IProps {
 const AmModal: React.FC<IProps> = (props) => {
   const [animation, setAnimation] = useState(false)
   const timeRef = useRef<any>()
-  const {
-    maxWidth,
-    maxHeight,
-    className,
-    customStyle,
-    visible,
-    onBgClick,
-    children,
-  } = props
+  const { maxWidth, maxHeight, className, customStyle, visible, onBgClick, children } = props
 
   useEffect(() => {
     if (visible === true) {

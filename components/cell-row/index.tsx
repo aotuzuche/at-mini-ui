@@ -14,16 +14,7 @@ interface IProps {
 }
 
 const AmCellRow: React.FC<IProps> = (props) => {
-  const {
-    value,
-    arrow,
-    onClick,
-    activable,
-    className,
-    children,
-    title,
-    dividerIndent,
-  } = props
+  const { value, arrow, onClick, activable, className, children, title, dividerIndent } = props
 
   const composeClassName = cn('am-cell__row', className, {
     'am-cell__row--activable': onClick || activable,

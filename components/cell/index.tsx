@@ -11,14 +11,7 @@ interface IProps {
 }
 
 const AmCell: React.FC<IProps> = (props) => {
-  const {
-    className,
-    wrapperBorder,
-    arrow,
-    onClick,
-    dividerIndent,
-    children,
-  } = props
+  const { className, wrapperBorder, arrow, onClick, dividerIndent, children } = props
 
   const composeChildren: any[] = React.Children.toArray(children)
 
@@ -29,20 +22,14 @@ const AmCell: React.FC<IProps> = (props) => {
         if (child && child.type && child.type.name === 'AmCellRow') {
           return React.cloneElement(child, {
             key: child.key,
-            arrow:
-              child.props.arrow === false ? false : arrow || child.props.arrow,
-            onClick:
-              child.props.href || child.props.to
-                ? null
-                : onClick || child.props.onClick,
+            arrow: child.props.arrow === false ? false : arrow || child.props.arrow,
+            onClick: child.props.href || child.props.to ? null : onClick || child.props.onClick,
             dividerIndent,
           })
         }
         return child
       })}
-      {wrapperBorder && (
-        <View className="am-cell-border am-cell-border--bottom" />
-      )}
+      {wrapperBorder && <View className="am-cell-border am-cell-border--bottom" />}
     </View>
   )
 }

@@ -61,8 +61,7 @@ const AmPopup: React.FC<IProps> = (props) => {
   const style: any = {}
   const sizeOrHeight = size || height
   if (sizeOrHeight) {
-    const unit =
-      typeof sizeOrHeight === 'number' ? `${sizeOrHeight}%` : sizeOrHeight
+    const unit = typeof sizeOrHeight === 'number' ? `${sizeOrHeight}%` : sizeOrHeight
     if (direction === 'left' || direction === 'right') {
       style.width = unit
     } else if (direction === 'top' || direction === 'bottom') {
@@ -86,20 +85,14 @@ const AmPopup: React.FC<IProps> = (props) => {
               'am-popup--local': local,
               'am-popup--border-radius': useBorderRadius,
             },
-            className
+            className,
           )}
         >
           <View className="am-popup__bg" onClick={onBgClick} />
-          <View
-            className="am-popup__inner"
-            style={{ ...style, ...customContentStyle }}
-          >
+          <View className="am-popup__inner" style={{ ...style, ...customContentStyle }}>
             {title && (
               <View className="am-popup__header">
-                <View
-                  className={cn({ 'am-popup__header--close': !!onClose })}
-                  onClick={onClose}
-                />
+                <View className={cn({ 'am-popup__header--close': !!onClose })} onClick={onClose} />
                 <View className="am-popup__header--title">{title}</View>
               </View>
             )}

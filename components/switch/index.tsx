@@ -37,15 +37,11 @@ const AmSwitch: React.FC<IProps> = (props) => {
       'am-switch--checked': checked,
       'am-switch--disabled': disabled,
     },
-    className
+    className,
   )
 
   return (
-    <Button
-      className={classes}
-      onClick={onButtonChange}
-      hoverClass="am-switch--hover"
-    >
+    <Button className={classes} onClick={onButtonChange} hoverClass="am-switch--hover">
       <View className="am-switch__dot" />
     </Button>
   )

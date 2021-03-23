@@ -37,14 +37,7 @@ const AmIndexes: React.FC<IProps> = (props: IProps) => {
   const [touch, setTouch] = useState(false)
   const [scrollIntoViewId, setScrollIntoViewId] = useState('')
   const menuRef: any = useRef(null)
-  const {
-    list,
-    topKey,
-    onClick,
-    menuList = [],
-    hotList = [],
-    className,
-  } = props
+  const { list, topKey, onClick, menuList = [], hotList = [], className } = props
 
   const findElement = (index: number) => {
     const letter = index === 0 ? 'hot' : menuList[index - 1]
@@ -72,7 +65,7 @@ const AmIndexes: React.FC<IProps> = (props: IProps) => {
     setTouch(true)
 
     lastMenuIndex = Math.floor(
-      Math.abs(e.target.offsetTop + e.touches[0].clientY - clientY) / DISTANCE
+      Math.abs(e.target.offsetTop + e.touches[0].clientY - clientY) / DISTANCE,
     )
 
     if (lastMenuIndex > menuList.length) {
@@ -114,31 +107,20 @@ const AmIndexes: React.FC<IProps> = (props: IProps) => {
             </View>
           )}
           {menuList.map((item) => (
-            <View
-              key={item}
-              className="am-indexes__menu-item"
-              style={{ height: '24px' }}
-            >
+            <View key={item} className="am-indexes__menu-item" style={{ height: '24px' }}>
               {item}
             </View>
           ))}
         </View>
       )}
-      <ScrollView
-        scrollY
-        scrollIntoView={scrollIntoViewId}
-        className="am-indexes__scroller"
-      >
+      <ScrollView scrollY scrollIntoView={scrollIntoViewId} className="am-indexes__scroller">
         {hotList.length > 0 && (
           <View className="am-indexes__hotcity" id="am-indexes__block--hot">
             <View className="am-indexes__title">热门城市</View>
             <View className="am-indexes__hotlist">
               {hotList.map((item) => (
                 <View key={item.code} className="am-indexes__hotlistwrap">
-                  <View
-                    className="am-indexes__hotlistitem"
-                    onClick={() => onCitySelectClick(item)}
-                  >
+                  <View className="am-indexes__hotlistitem" onClick={() => onCitySelectClick(item)}>
                     {item.name}
                   </View>
                 </View>
@@ -151,11 +133,7 @@ const AmIndexes: React.FC<IProps> = (props: IProps) => {
           {list.map((city) => {
             const { key, title, items } = city
             return (
-              <View
-                id={`am-indexes__block--${key}`}
-                className="am-indexes__block"
-                key={key}
-              >
+              <View id={`am-indexes__block--${key}`} className="am-indexes__block" key={key}>
                 <View className="am-indexes__title">{title}</View>
                 <AmList>
                   {items.map((cell, index) => {
