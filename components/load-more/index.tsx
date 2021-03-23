@@ -1,5 +1,4 @@
 import React from 'react'
-import Taro from '@tarojs/taro'
 import { View, Text, Block } from '@tarojs/components'
 import cn from 'classnames'
 import Spin from '../spin'
@@ -11,7 +10,7 @@ interface IProps {
   customStyle?: React.CSSProperties
 }
 
-const AmLoadMore: Taro.FC<IProps> = (props: IProps) => {
+const AmLoadMore: React.FC<IProps> = (props: IProps) => {
   const { totalPage, pageNum, className, customStyle } = props
   const classname = cn('am-load-more', className)
   if (!totalPage || !pageNum || totalPage <= 1) {
@@ -32,10 +31,6 @@ const AmLoadMore: Taro.FC<IProps> = (props: IProps) => {
 AmLoadMore.defaultProps = {
   className: '',
   customStyle: {},
-}
-
-AmLoadMore.options = {
-  addGlobalClass: true,
 }
 
 export default AmLoadMore

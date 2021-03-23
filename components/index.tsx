@@ -41,3 +41,5 @@ export { default as Switch } from './switch'
 export { default as Tabs } from './tabs'
 
 export { default as Toast } from './toast'
+
+export { default as NoData } from './no-data'

@@ -1,5 +1,4 @@
 import { View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -8,7 +7,7 @@ interface IListProps {
   className?: string
 }
 
-const AmList: Taro.FC<IListProps> = (props) => {
+const AmList: React.FC<IListProps> = (props) => {
   const { className, border, children } = props
   const classname = cn('am-list', className)
 
@@ -23,10 +22,6 @@ const AmList: Taro.FC<IListProps> = (props) => {
 
 AmList.defaultProps = {
   border: true,
-}
-
-AmList.options = {
-  addGlobalClass: true,
 }
 
 export default AmList

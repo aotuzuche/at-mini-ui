@@ -1,4 +1,3 @@
-import Taro from '@tarojs/taro'
 import React from 'react'
 import { Image, View, Text } from '@tarojs/components'
 import cn from 'classnames'
@@ -77,7 +76,7 @@ interface IProps {
   onClick?: () => void
 }
 
-const AmAvatar: Taro.FC<IProps> = (props) => {
+const AmAvatar: React.FC<IProps> = (props) => {
   const {
     url = defaultAvatar,
     size = 'normal',
@@ -132,10 +131,6 @@ AmAvatar.defaultProps = {
   text: '',
   url: defaultAvatar,
   className: '',
-}
-
-AmAvatar.options = {
-  addGlobalClass: true,
 }
 
 export default AmAvatar

@@ -1,6 +1,5 @@
 import { Input, View } from '@tarojs/components'
 import { InputProps } from '@tarojs/components/types/Input'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -17,7 +16,7 @@ interface IProps {
   onKeyboardHeightChange?: (e: any) => void
 }
 
-const AmInput: Taro.FC<IProps & InputProps> = (props) => {
+const AmInput: React.FC<IProps & InputProps> = (props) => {
   const {
     id,
     type,
@@ -26,7 +25,6 @@ const AmInput: Taro.FC<IProps & InputProps> = (props) => {
     className,
     placeholder,
     maxlength,
-    autoFocus,
     password,
     placeholderStyle,
     onChange,
@@ -89,7 +87,6 @@ const AmInput: Taro.FC<IProps & InputProps> = (props) => {
         placeholderStyle={placeholderStyle}
         placeholder={placeholder}
         maxlength={maxlength}
-        focus={autoFocus}
         adjustPosition
         onInput={handleInput}
         cursorSpacing={50}
@@ -104,10 +101,6 @@ const AmInput: Taro.FC<IProps & InputProps> = (props) => {
       )}
     </View>
   )
-}
-
-AmInput.options = {
-  addGlobalClass: true,
 }
 
 AmInput.defaultProps = {
@@ -126,7 +119,6 @@ AmInput.defaultProps = {
   disabled: false,
   border: true,
   clear: true,
-  autoFocus: false,
   focus: false,
   onChange: () => {},
   onFocus: () => {},

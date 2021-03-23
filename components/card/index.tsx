@@ -1,6 +1,5 @@
 import { View } from '@tarojs/components'
 import React from 'react'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 
 interface IProps {
@@ -9,7 +8,7 @@ interface IProps {
   className?: string
 }
 
-const AmCard: Taro.FC<IProps> = (props) => {
+const AmCard: React.FC<IProps> = (props) => {
   const { roundedCorner, border, className, children } = props
 
   const classes = cn(
@@ -23,10 +22,6 @@ const AmCard: Taro.FC<IProps> = (props) => {
   )
 
   return <View className={classes}>{children}</View>
-}
-
-AmCard.options = {
-  addGlobalClass: true,
 }
 
 export default React.memo(AmCard)

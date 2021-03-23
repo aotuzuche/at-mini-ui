@@ -1,5 +1,4 @@
 import { Text, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -14,7 +13,7 @@ interface IProps {
   dividerIndent?: 'left' | 'both'
 }
 
-const AmCellRow: Taro.FC<IProps> = (props) => {
+const AmCellRow: React.FC<IProps> = (props) => {
   const {
     value,
     arrow,
@@ -44,10 +43,6 @@ const AmCellRow: Taro.FC<IProps> = (props) => {
       {arrow && <View className="am-cell__arrow" />}
     </View>
   )
-}
-
-AmCellRow.options = {
-  addGlobalClass: true,
 }
 
 export default AmCellRow

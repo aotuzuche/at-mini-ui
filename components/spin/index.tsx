@@ -1,5 +1,4 @@
 import React from 'react'
-import Taro from '@tarojs/taro'
 import { View, Text } from '@tarojs/components'
 import cn from 'classnames'
 
@@ -8,7 +7,7 @@ interface IProps {
   customStyle?: React.CSSProperties
 }
 
-const AmSpin: Taro.FC<IProps> = (props: IProps) => {
+const AmSpin: React.FC<IProps> = (props: IProps) => {
   const { className, customStyle } = props
   const composeClassName = cn('am-spin', className)
   return (
@@ -25,10 +24,6 @@ const AmSpin: Taro.FC<IProps> = (props: IProps) => {
 AmSpin.defaultProps = {
   customStyle: {},
   className: '',
-}
-
-AmSpin.options = {
-  addGlobalClass: true,
 }
 
 export default React.memo(AmSpin)

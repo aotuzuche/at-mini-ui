@@ -1,5 +1,4 @@
 import { Button, View } from '@tarojs/components'
-import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
 
@@ -16,7 +15,7 @@ interface IProps {
   className?: string
 }
 
-const AmTabs: Taro.FC<IProps> = (props) => {
+const AmTabs: React.FC<IProps> = (props) => {
   const { className, type, onClick, tabs, active } = props
 
   const classes = cn('am-tabs', `am-tabs--${type}`, className)
@@ -49,10 +48,6 @@ const AmTabs: Taro.FC<IProps> = (props) => {
 AmTabs.defaultProps = {
   tabs: [],
   type: 'primary',
-}
-
-AmTabs.options = {
-  addGlobalClass: true,
 }
 
 export default React.memo(AmTabs)

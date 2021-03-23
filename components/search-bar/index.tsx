@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Taro from '@tarojs/taro'
 import { View } from '@tarojs/components'
 import cn from 'classnames'
 import AmInput from '../input'
@@ -17,7 +16,7 @@ interface IProps {
   className?: string
 }
 
-const AmSearchBar: Taro.FC<IProps> = (props) => {
+const AmSearchBar: React.FC<IProps> = (props) => {
   const {
     placeholder,
     actionName,
@@ -95,10 +94,6 @@ const AmSearchBar: Taro.FC<IProps> = (props) => {
 AmSearchBar.defaultProps = {
   actionName: '',
   maxLength: 100,
-}
-
-AmSearchBar.options = {
-  addGlobalClass: true,
 }
 
 export default AmSearchBar
