@@ -12,7 +12,7 @@
     "build:cp": "cpy '**/*.scss' '../lib' --cwd=components --parents && cpy '**/*.scss' '../es' --cwd=components --parents",
     "clean": "rimraf es && rimraf lib",
     "lint": "yarn lint:eslint && yarn lint:tsc",
-    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx,.md",
+    "lint:eslint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:tsc": "tsc --noEmit",
     "build": "dumi build",
     "deploy": "yarn build",
