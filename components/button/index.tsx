@@ -12,7 +12,6 @@ interface IProps {
   hoverClass?: string
   className?: string
   lighter?: boolean | 'lighter' | 'white'
-  reportFormID?: boolean
   shrink?: boolean
   disabled?: boolean
   capsule?: boolean
@@ -41,7 +40,6 @@ const AmButton: React.FC<IProps> = (props) => {
     className,
     customStyle,
     openType,
-    reportFormID,
     onGetPhoneNumber,
     onGetUserInfo,
     onReportFormID,
@@ -88,7 +86,6 @@ const AmButton: React.FC<IProps> = (props) => {
       openType={openType as any}
       onGetPhoneNumber={onGetPhoneNumber}
       onGetUserInfo={onGetUserInfo}
-      reportFormID={reportFormID}
     >
       {children}
     </Button>
@@ -113,7 +110,6 @@ AmButton.defaultProps = {
   lighter: false,
   bordered: false,
   capsule: true,
-  reportFormID: false,
   hoverClass: 'am-button--hover',
 }
 
