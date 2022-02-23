@@ -4,7 +4,7 @@ import cn from 'classnames'
 import React from 'react'
 
 interface IProps {
-  size?: 'small'
+  size?: 'small' | 'smallest'
   type?: 'primary' | 'secondary'
   className?: string
   data?: any
@@ -32,8 +32,8 @@ const AmSwitch: React.FC<IProps> = (props) => {
   const classes = cn(
     'am-switch',
     `am-switch--${type}`,
+    `am-switch--${size}`,
     {
-      'am-switch--small': size === 'small',
       'am-switch--checked': checked,
       'am-switch--disabled': disabled,
     },

@@ -65,4 +65,19 @@ $rootClassName: '.am-switch';
       }
     }
   }
+
+  &--smallest {
+    width: 64px;
+    height: 34px;
+    padding: 2px;
+
+    .am-switch__inner {
+      width: 30px;
+    }
+
+    .am-switch__dot {
+      width: 30px;
+      height: 30px;
+    }
+  }
 }
