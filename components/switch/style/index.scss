@@ -5,6 +5,7 @@ $rootClassName: '.am-switch';
   display: block;
   width: 100px;
   height: 54px;
+  padding: 4px;
   background: rgb(211, 211, 216);
   border: none;
   border-radius: 27px;
@@ -26,10 +27,13 @@ $rootClassName: '.am-switch';
     }
   }
 
+  &__inner {
+    width: 46px;
+    transition: all 0.2s ease-out;
+  }
+
   &__dot {
-    position: absolute;
-    top: 4px;
-    left: 4px;
+    margin-left: auto;
     display: block;
     width: 46px;
     height: 46px;
@@ -54,7 +58,11 @@ $rootClassName: '.am-switch';
     width: 78px;
     height: 44px;
 
-    > .am-switch__dot {
+    .am-switch__inner {
+      width: 36px;
+    }
+
+    .am-switch__dot {
       width: 36px;
       height: 36px;
     }
@@ -78,6 +86,12 @@ $rootClassName: '.am-switch';
     .am-switch__dot {
       width: 30px;
       height: 30px;
+    }
+
+    &.am-switch--checked {
+      .am-switch__dot {
+        transform: translate(28px, 0);
+      }
     }
   }
 }

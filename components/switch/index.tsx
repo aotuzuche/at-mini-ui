@@ -42,7 +42,9 @@ const AmSwitch: React.FC<IProps> = (props) => {
 
   return (
     <Button className={classes} onClick={onButtonChange} hoverClass="am-switch--hover">
-      <View className="am-switch__dot" />
+      <View className="am-switch__inner">
+        <View className="am-switch__dot" />
+      </View>
     </Button>
   )
 }
