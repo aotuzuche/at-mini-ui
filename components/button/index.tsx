@@ -9,8 +9,10 @@ const ENV = Taro.getEnv()
 interface IProps {
   type?: 'primary' | 'secondary' | 'danger' | 'default'
   size?: 'small' | 'large' | 'middle'
+  hoverClass?: string
   className?: string
   lighter?: boolean | 'lighter' | 'white'
+  reportFormID?: boolean
   shrink?: boolean
   disabled?: boolean
   capsule?: boolean
@@ -39,10 +41,12 @@ const AmButton: React.FC<IProps> = (props) => {
     className,
     customStyle,
     openType,
+    reportFormID,
     onGetPhoneNumber,
     onGetUserInfo,
     onReportFormID,
     children,
+    hoverClass,
   } = props
 
   const onBtnClick = (evt: any) => {
@@ -80,10 +84,11 @@ const AmButton: React.FC<IProps> = (props) => {
       className={classes}
       style={color ? { backgroundColor: color, ...customStyle } : { ...customStyle }}
       onClick={onBtnClick}
-      hoverClass="am-button--hover"
+      hoverClass={hoverClass}
       openType={openType as any}
       onGetPhoneNumber={onGetPhoneNumber}
       onGetUserInfo={onGetUserInfo}
+      reportFormID={reportFormID}
     >
       {children}
     </Button>
@@ -108,6 +113,8 @@ AmButton.defaultProps = {
   lighter: false,
   bordered: false,
   capsule: true,
+  reportFormID: false,
+  hoverClass: 'am-button--hover',
 }
 
 export default React.memo(AmButton)
