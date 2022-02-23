@@ -31,8 +31,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,md}": "eslint --fix",
-    "*.{js,jsx,ts,tsx,md,css}": "prettier --write"
+    "*.{js,jsx,ts,tsx}": "eslint --fix",
+    "*.{js,jsx,ts,tsx,css}": "prettier --write"
   },
   "main": "./lib/index",
   "module": "./es/index",
