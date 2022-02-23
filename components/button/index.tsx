@@ -19,7 +19,7 @@ interface IProps {
   color?: string
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
-  openType?: ButtonProps.openType
+  openType?: any
   onReportFormID?: (evt: any) => void
   children?: any
   onGetPhoneNumber?: (evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>) => void
