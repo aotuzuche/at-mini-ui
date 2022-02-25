@@ -101,12 +101,9 @@ const AmPopup: React.FC<IProps> = (props) => {
             {title && (
               <View className="am-popup__header">
                 {onClose && (
-                  <View
-                    className={cn({ 'am-popup__header--close': !!onClose })}
-                    onClick={onClose}
-                  />
+                  <View className={cn({ 'am-popup__header-close': !!onClose })} onClick={onClose} />
                 )}
-                {title && <View className="am-popup__header--title">{title}</View>}
+                {title && <View className="am-popup__header-title">{title}</View>}
                 {rightText && (
                   <View className="am-popup__header-right" onClick={onRightTextClick}>
                     {rightText}
