@@ -57,10 +57,19 @@ $rootClassName: '.am-popup';
       z-index: 9;
       width: 90px;
       height: 90px;
-      background: url('https://cdn.atzuche.com/miniprogram/icon-close2.png') 50%
-        no-repeat;
+      background: url('https://cdn.atzuche.com/miniprogram/icon-close2.png') 50% no-repeat;
       background-size: 44px 44px;
       opacity: 0.5;
+    }
+
+    &-right {
+      position: absolute;
+      top: 25px;
+      right: 12px;
+      height: 60px;
+      padding: 0 20px;
+      font-size: 24px;
+      line-height: 60px;
     }
   }
 

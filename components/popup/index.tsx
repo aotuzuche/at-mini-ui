@@ -20,6 +20,10 @@ interface IProps {
   onFooterBtnClick?: () => void
   customStyle?: React.CSSProperties
   customContentStyle?: React.CSSProperties
+  rightText?: string
+  onRightTextClick?: () => void
+  useSafeArea?: boolean
+  noScrollY?: boolean
 }
 
 const AmPopup: React.FC<IProps> = (props) => {
@@ -40,6 +44,10 @@ const AmPopup: React.FC<IProps> = (props) => {
     children,
     onFooterBtnClick,
     footerBtnText,
+    rightText,
+    onRightTextClick,
+    noScrollY,
+    useSafeArea,
   } = props
   const [display, setDisplay] = useState('none')
   const [popVisible, setPopVisible] = useState(false)
@@ -92,11 +100,21 @@ const AmPopup: React.FC<IProps> = (props) => {
           <View className="am-popup__inner" style={{ ...style, ...customContentStyle }}>
             {title && (
               <View className="am-popup__header">
-                <View className={cn({ 'am-popup__header--close': !!onClose })} onClick={onClose} />
-                <View className="am-popup__header--title">{title}</View>
+                {onClose && (
+                  <View
+                    className={cn({ 'am-popup__header--close': !!onClose })}
+                    onClick={onClose}
+                  />
+                )}
+                {title && <View className="am-popup__header--title">{title}</View>}
+                {rightText && (
+                  <View className="am-popup__header-right" onClick={onRightTextClick}>
+                    {rightText}
+                  </View>
+                )}
               </View>
             )}
-            <ScrollView scrollY className="am-popup__content">
+            <ScrollView scrollY={!noScrollY} scrollX={false} className="am-popup__content">
               {children}
             </ScrollView>
             <View
@@ -108,7 +126,8 @@ const AmPopup: React.FC<IProps> = (props) => {
                 {footerBtnText}
               </AmButton>
             </View>
-            <View className="am-safe-area" />
+
+            {useSafeArea && direction === 'top' && <View className="safe-area" />}
           </View>
         </View>
       )}

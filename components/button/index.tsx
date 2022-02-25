@@ -3,6 +3,7 @@ import { ButtonProps } from '@tarojs/components/types/Button'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
+import AmSpin from '../spin'
 
 const ENV = Taro.getEnv()
 
@@ -12,6 +13,7 @@ interface IProps {
   hoverClass?: string
   className?: string
   lighter?: boolean | 'lighter' | 'white'
+  loading?: boolean
   shrink?: boolean
   disabled?: boolean
   capsule?: boolean
@@ -37,6 +39,7 @@ const AmButton: React.FC<IProps> = (props) => {
     shrink,
     capsule,
     bordered,
+    loading,
     className,
     customStyle,
     openType,
@@ -48,7 +51,7 @@ const AmButton: React.FC<IProps> = (props) => {
   } = props
 
   const onBtnClick = (evt: any) => {
-    if (disabled) {
+    if (disabled || loading) {
       return
     }
     if (onClick) {
@@ -87,7 +90,11 @@ const AmButton: React.FC<IProps> = (props) => {
       onGetPhoneNumber={onGetPhoneNumber}
       onGetUserInfo={onGetUserInfo}
     >
-      {children}
+      {loading ? (
+        <AmSpin local size={size} color={type === 'default' ? 'green' : 'white'} />
+      ) : (
+        children
+      )}
     </Button>
   )
 

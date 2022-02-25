@@ -9,6 +9,15 @@
   width: 100%;
   height: 100%;
 
+  &--local {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: 1;
+    width: 82px;
+    height: 34px;
+  }
+
   &__inner {
     position: relative;
     display: flex;
@@ -42,6 +51,20 @@
       left: 68px;
       animation: __x_loading_bounce 0.8s linear 0.4s infinite;
     }
+  }
+
+  &--white {
+    .am-spin__item {
+      background: #fff;
+    }
+  }
+
+  &--middle {
+    transform: scale(0.8);
+  }
+
+  &--small {
+    transform: scale(0.6);
   }
 }
 

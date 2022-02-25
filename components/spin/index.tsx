@@ -1,15 +1,26 @@
-import React from 'react'
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import cn from 'classnames'
+import React from 'react'
 
 interface IProps {
   className?: string
+  local?: boolean
+  color?: 'green' | 'white'
+  size?: 'small' | 'large' | 'middle'
   customStyle?: React.CSSProperties
 }
 
 const AmSpin: React.FC<IProps> = (props: IProps) => {
-  const { className, customStyle } = props
-  const composeClassName = cn('am-spin', className)
+  const { className, customStyle, local, color, size } = props
+  const composeClassName = cn(
+    'am-spin',
+    `am-spin--${size}`,
+    {
+      'am-spin--white': color === 'white',
+      'am-spin--local': local,
+    },
+    className,
+  )
   return (
     <View className={composeClassName} style={customStyle}>
       <View className="am-spin__inner">
@@ -24,6 +35,9 @@ const AmSpin: React.FC<IProps> = (props: IProps) => {
 AmSpin.defaultProps = {
   customStyle: {},
   className: '',
+  local: false,
+  color: 'green',
+  size: 'large',
 }
 
-export default React.memo(AmSpin)
+export default AmSpin
