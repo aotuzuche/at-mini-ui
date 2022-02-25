@@ -142,6 +142,8 @@ AmPopup.defaultProps = {
   local: false,
   title: '',
   footerBtnText: '完成',
+  useBorderRadius: true,
+  useSafeArea: true,
 }
 
 export default React.memo(AmPopup)
