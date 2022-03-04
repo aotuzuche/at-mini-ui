@@ -46,7 +46,7 @@ const AmPopup: React.FC<IProps> = (props) => {
     footerBtnText,
     rightText,
     onRightTextClick,
-    noScrollY,
+    noScrollY = false,
     useSafeArea,
   } = props
   const [display, setDisplay] = useState('none')
@@ -141,6 +141,7 @@ AmPopup.defaultProps = {
   footerBtnText: '完成',
   useBorderRadius: true,
   useSafeArea: true,
+  noScrollY: false,
 }
 
 export default React.memo(AmPopup)
