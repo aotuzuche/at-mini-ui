@@ -33,6 +33,7 @@ $rootClassName: '.am-popup';
     background-color: #fff;
     transition: transform 0.2s ease-out;
     pointer-events: auto;
+    overflow: hidden;
   }
 
   &--border-radius {
@@ -84,6 +85,7 @@ $rootClassName: '.am-popup';
     flex: 1;
     width: 100%;
     background: #fff;
+    overflow: hidden;
   }
 
   &__footer {

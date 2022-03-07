@@ -124,7 +124,7 @@ const AmPopup: React.FC<IProps> = (props) => {
               </AmButton>
             </View>
 
-            {useSafeArea && direction === 'top' && <View className="safe-area" />}
+            {useSafeArea && direction === 'top' && <View className="am-safe-area" />}
           </View>
         </View>
       )}
