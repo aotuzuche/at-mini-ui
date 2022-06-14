@@ -9,13 +9,23 @@ interface IProps {
   maxHeight?: number
   onBgClick?: () => void
   customStyle?: React.CSSProperties
+  contentCustomStyle?: React.CSSProperties
   title?: string
 }
 
 const AmModal: React.FC<IProps> = (props) => {
   const [animation, setAnimation] = useState(false)
   const timeRef = useRef<any>()
-  const { maxWidth, maxHeight, className, customStyle, visible, onBgClick, children } = props
+  const {
+    maxWidth,
+    maxHeight,
+    className,
+    customStyle,
+    visible,
+    onBgClick,
+    children,
+    contentCustomStyle,
+  } = props
 
   useEffect(() => {
     if (visible === true) {
@@ -34,6 +44,7 @@ const AmModal: React.FC<IProps> = (props) => {
   const bodyStyles = {
     maxWidth: `${maxWidth}%`,
     maxHeight: `${maxHeight}%`,
+    ...contentCustomStyle,
   }
 
   const classes = cn('am-modal', className, {

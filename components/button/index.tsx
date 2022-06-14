@@ -3,14 +3,17 @@ import { ButtonProps } from '@tarojs/components/types/Button'
 import Taro from '@tarojs/taro'
 import cn from 'classnames'
 import React from 'react'
+import AmSpin from '../spin'
 
 const ENV = Taro.getEnv()
 
 interface IProps {
   type?: 'primary' | 'secondary' | 'danger' | 'default'
   size?: 'small' | 'large' | 'middle'
+  hoverClass?: string
   className?: string
   lighter?: boolean | 'lighter' | 'white'
+  loading?: boolean
   shrink?: boolean
   disabled?: boolean
   capsule?: boolean
@@ -18,7 +21,7 @@ interface IProps {
   color?: string
   onClick?: (evt: any, data?: any) => void
   customStyle?: React.CSSProperties
-  openType?: ButtonProps.openType
+  openType?: any
   onReportFormID?: (evt: any) => void
   children?: any
   onGetPhoneNumber?: (evt: BaseEventOrig<ButtonProps.onGetPhoneNumberEventDetail>) => void
@@ -36,6 +39,7 @@ const AmButton: React.FC<IProps> = (props) => {
     shrink,
     capsule,
     bordered,
+    loading,
     className,
     customStyle,
     openType,
@@ -43,10 +47,11 @@ const AmButton: React.FC<IProps> = (props) => {
     onGetUserInfo,
     onReportFormID,
     children,
+    hoverClass,
   } = props
 
   const onBtnClick = (evt: any) => {
-    if (disabled) {
+    if (disabled || loading) {
       return
     }
     if (onClick) {
@@ -80,12 +85,16 @@ const AmButton: React.FC<IProps> = (props) => {
       className={classes}
       style={color ? { backgroundColor: color, ...customStyle } : { ...customStyle }}
       onClick={onBtnClick}
-      hoverClass="am-button--hover"
+      hoverClass={hoverClass}
       openType={openType as any}
       onGetPhoneNumber={onGetPhoneNumber}
       onGetUserInfo={onGetUserInfo}
     >
-      {children}
+      {loading ? (
+        <AmSpin local size={size} color={type === 'default' ? 'green' : 'white'} />
+      ) : (
+        children
+      )}
     </Button>
   )
 
@@ -108,6 +117,7 @@ AmButton.defaultProps = {
   lighter: false,
   bordered: false,
   capsule: true,
+  hoverClass: 'am-button--hover',
 }
 
 export default React.memo(AmButton)
