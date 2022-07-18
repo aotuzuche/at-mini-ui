@@ -24,6 +24,7 @@ interface IProps {
   onRightTextClick?: () => void
   useSafeArea?: boolean
   noScrollY?: boolean
+  closePosition?: 'left' | 'right'
 }
 
 const AmPopup: React.FC<IProps> = (props) => {
@@ -48,6 +49,7 @@ const AmPopup: React.FC<IProps> = (props) => {
     onRightTextClick,
     noScrollY = false,
     useSafeArea,
+    closePosition = 'left',
   } = props
   const [display, setDisplay] = useState('none')
   const [popVisible, setPopVisible] = useState(false)
@@ -101,7 +103,13 @@ const AmPopup: React.FC<IProps> = (props) => {
             {title && (
               <View className="am-popup__header">
                 {onClose && (
-                  <View className={cn({ 'am-popup__header-close': !!onClose })} onClick={onClose} />
+                  <View
+                    className={cn(
+                      { 'am-popup__header-close': !!onClose },
+                      `am-popup__header-close--${closePosition}`,
+                    )}
+                    onClick={onClose}
+                  />
                 )}
                 {title && <View className="am-popup__header-title">{title}</View>}
                 {rightText && (
@@ -142,6 +150,7 @@ AmPopup.defaultProps = {
   useBorderRadius: true,
   useSafeArea: true,
   noScrollY: false,
+  closePosition: 'left',
 }
 
 export default React.memo(AmPopup)

@@ -61,12 +61,19 @@ $rootClassName: '.am-popup';
     &-close {
       position: absolute;
       top: 15px;
-      left: 10px;
       z-index: 9;
       width: 80px;
       height: 80px;
       background: url('https://cdn.atzuche.com/mini/icon-close-black.png') 50% no-repeat;
       background-size: 30px 30px;
+
+      &--left {
+        left: 10px;
+      }
+
+      &--right {
+        right: 10px;
+      }
     }
 
     &-right {
