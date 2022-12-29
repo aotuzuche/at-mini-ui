@@ -1,18 +1,28 @@
-import React from 'react'
-import { View, Text, Block } from '@tarojs/components'
+import { Block, Text, View } from '@tarojs/components'
 import cn from 'classnames'
+import React from 'react'
 import Spin from '../spin'
 
 interface IProps {
   pageNum: number
-  totalPage: number
+  totalPage?: number
+  hasNext?: boolean
   className?: string
   customStyle?: React.CSSProperties
 }
 
 const AmLoadMore: React.FC<IProps> = (props: IProps) => {
-  const { totalPage, pageNum, className, customStyle } = props
+  const { totalPage, pageNum, className, customStyle, hasNext } = props
   const classname = cn('am-load-more', className)
+
+  if (hasNext) {
+    return (
+      <View className={classname} style={customStyle}>
+        <Spin customStyle={{ position: 'absolute' }} />
+      </View>
+    )
+  }
+
   if (!totalPage || !pageNum || totalPage <= 1) {
     // 修复return null的时候不执行
     return <Block />
@@ -31,6 +41,8 @@ const AmLoadMore: React.FC<IProps> = (props: IProps) => {
 AmLoadMore.defaultProps = {
   className: '',
   customStyle: {},
+  hasNext: false,
+  totalPage: 1,
 }
 
 export default AmLoadMore
