@@ -4,7 +4,7 @@ import React from 'react'
 import Spin from '../spin'
 
 interface IProps {
-  pageNum: number
+  pageNum?: number
   totalPage?: number
   hasNext?: boolean
   className?: string
@@ -43,6 +43,7 @@ AmLoadMore.defaultProps = {
   customStyle: {},
   hasNext: false,
   totalPage: 1,
+  pageNum: 1,
 }
 
 export default AmLoadMore
